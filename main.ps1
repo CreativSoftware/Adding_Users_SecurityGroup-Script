@@ -7,9 +7,10 @@ $credientials = Get-Credential -UserName $domain_username -Message 'Enter Admin 
 foreach ($nameEntry in $userlist) {
     $name = $nameEntry."Employee Name"
     $last, $first = $name -split ","
+    $firstComponents = $first.Trim().Split(' ')
     
-    if ($first) {
-        $first = $first.Trim()
+    if ($firstComponents -gt 1) {
+        $first = $firstComponents[0]
     }
     if ($last) {
         $last = $last.Trim()
