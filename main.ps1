@@ -23,5 +23,5 @@ foreach ($nameEntry in $userlist) {
 
     $employeenames = $obj.FullName
     $users = Get-ADUser -Filter "Name -like '*$employeenames'" -Properties * | Select-Object Name, SamAccountName
-    Add-ADGroupMember -Identity IG-Email-Search -Members $users.SamAccountName -Credential $credientials
+    Add-ADGroupMember -Identity GroupName -Members $users.SamAccountName -Credential $credientials
 }
